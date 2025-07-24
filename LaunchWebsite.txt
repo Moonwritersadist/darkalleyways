@@ -1,0 +1,1 @@
+streamlit run streamlittest.py --theme.backgroundColor "black" --theme.primaryColor "#F63366" --theme.textColor "white"
