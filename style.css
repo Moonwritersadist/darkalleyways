@@ -104,3 +104,13 @@ h1 {
         color: crimson;
         text-shadow: 1px 1px 4px rgb(98, 9, 136);
       }
+.locate-icon {
+    display: block;
+    height: 18px;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 5px;
+    width: 18px;
+}

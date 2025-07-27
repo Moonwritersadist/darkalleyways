@@ -12,9 +12,9 @@ const map = L.map('map').setView([50.8467, 4.3499], 11); //starting position
         popupAnchor: [0, -32]
       })
 
-let marker, circle; 
+let marker, aroundmarker; 
 
-navigator.geolocation.watchPosition(success, error, {
+navigator.geolocation.watchPosition(success, undefined, {
   enableHighAccuracy: true,
   maximumAge: 0,
   timeout: Infinity
@@ -24,37 +24,35 @@ function success(position) {
     const fnlat = position.coords.latitude;
     const fnlong = position.coords.longitude;
     const accuracy = position.coords.accuracy; // Accuracy in metres
+
+    if (marker) map.removeLayer(marker);
+    if (aroundmarker) map.removeLayer(aroundmarker);
+
     marker = L.circleMarker([fnlat, fnlong], {
-        radius: 2,             // size of the point in px
-        fillColor: '#3388ff',  // fill color
-        color: '#3388ff',      // stroke color
-        weight: 1,
+        radius: 10,             // size of the point in px
+        fillColor: '#3388ff',  
+        color: '#3388ff',      
         opacity: 0.3,
         fillOpacity: 0.9,
         pane: 'markerPane'     // keep it on marker pane to control layering
     }).addTo(map);
-    marker = L.circle([fnlat, fnlong], {
-        radius: 10,             // size of the point in px
-        fillColor: '#3388ff',  // fill color
-        color: '#3388ff',      // stroke color
-        weight: 1,
+    aroundmarker = L.circle([fnlat, fnlong], {
+        radius: 50,             
+        fillColor: '#629ef1ff',
+        color: '#3388ff',      
         opacity: 1,
-        fillOpacity: 0.9,
-        pane: 'markerPane'     // keep it on marker pane to control layering
+        fillOpacity: 0.3,
+        pane: 'markerPane'     
     }).addTo(map);
+    console.log("Added GPS")
 }
 
-function error(err) {
-
-    if (err.code === 1) {
-        alert("Please allow geolocation access");
-        // Runs if user refuses access
-    } else {
-        alert("Cannot get current location");
-        // Runs if there was a technical problem.
-    }
-
-}
+L.easyButton('<img src="icon_location.png" class="locate-icon">', 
+  function(btn, map) {
+  if (marker) {
+    map.setView(marker.getLatLng(), 14); 
+  }
+}).addTo(map);
 
 var points = Papa.parse("Data_points.csv", {
         download: true,
@@ -63,6 +61,7 @@ var points = Papa.parse("Data_points.csv", {
 		   points.data.forEach(function(row) {
             const lat = parseFloat(row.lat)
             const lon = parseFloat(row.lon)
+            // console.log(lat,lon);
             const popupContent = `
               <div style="color:darkred;">
                 <a href="${row.URL}" target="_blank" 
@@ -71,7 +70,6 @@ var points = Papa.parse("Data_points.csv", {
                 font-size: 20px;">View on Google Maps</a>
                 <p style="font-style: italic; margin-top: 2px; font-size: 15px;">Note: ${row.Note}</p>
               </div>`;
-            //console.log(lat,lon);
             L.marker([lat, lon], {icon: Icon}).addTo(map).bindPopup(popupContent);
            });;
 	    }   
