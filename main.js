@@ -1,6 +1,6 @@
 const map = L.map('map').setView([50.8467, 4.3499], 11); //starting position
       var Stadia_StamenTonerLite = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-	      minZoom: 10,
+	      minZoom: 7,
 	      maxZoom: 20,
 	      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	      ext: 'png'
