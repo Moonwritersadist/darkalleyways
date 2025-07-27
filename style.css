@@ -1,0 +1,99 @@
+h1 {
+        font-family: "UnifrakturCook", cursive;
+        color: darkred;
+        font-size: 400%;
+        text-shadow: 2px 2px #591616;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      h2 {
+        color:#e21818;
+        font-size: 20px;
+        font-family: "MedievalSharp", cursive;
+        text-align: center;
+        text-shadow: 2px 2px 4px #591616;
+        margin-bottom: 10px;
+        margin-left: 25vw;
+        margin-right: 25vw;
+      }
+      body, html {
+        height: 100%;
+        background-color: black;
+        background: url('background.jpg');
+        background-repeat: no-repeat;
+        font-family: sans-serif;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+      }
+      body::before {
+        content: "";
+        position: fixed; /* fixed to cover the viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.6); /* black with 60% opacity */
+        pointer-events: none; /* so overlay doesn’t block clicks */
+        z-index: 0;
+      }
+      body > * {
+        position: relative;
+        z-index: 1;
+      }
+      .map-wrapper {
+        position: relative;
+        width: 60%;
+        max-width: 600px;
+        margin: 10px auto;
+      }
+      #map {
+        height: 50vh; 
+        width: 100%; 
+        border: 5px solid darkred;
+        }
+      @media (max-width: 600px) {
+        #map {
+          height: 250px;
+          margin-left: 1vw;
+          margin-right: 1vw;
+        }
+        h2 {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+      .credit {
+        color: white;
+        font-size: 12px;
+        position: absolute;
+      }
+      .blocknotes-wrapper {
+        background-color: darkred;
+        color: white;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 100;
+        font-style: normal;
+        font-size: 15px;
+        width: 90%;
+        max-width: 600px;
+        margin: 40px auto;         /* centers the block */
+        padding: 20px;             /* adds space inside the box */
+        text-align: left;
+        border-radius: 8px;        /* optional: rounded corners */
+        box-shadow: 0 0 10px black;
+        line-height: 20px;
+      }
+      .notes {
+        color: white; 
+        size: 10px; 
+        margin-top: 20px; 
+        font-style: italic; 
+        text-align:center;
+        margin-left: 25vw;
+        margin-right: 25vw;
+      }
+      a:hover {
+        color: crimson;
+        text-shadow: 1px 1px 4px rgb(98, 9, 136);
+      }
