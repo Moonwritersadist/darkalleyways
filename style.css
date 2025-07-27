@@ -55,12 +55,14 @@ h1 {
       @media (max-width: 600px) {
         #map {
           height: 250px;
+          width: 100vw;
           margin-left: 1vw;
           margin-right: 1vw;
         }
         .map-wrapper {
-          margin-left: 1vw;
-          margin-right: 1vw;
+          width: 100%;
+          width: 100vw;
+          margin: 0;
         }
         h2 {
           margin-left: 0;
