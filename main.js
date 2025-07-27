@@ -12,7 +12,7 @@ const map = L.map('map').setView([50.8467, 4.3499], 11); //starting position
         popupAnchor: [0, -32]
       })
 
-let marker, circle;
+let marker, circle; 
 
 navigator.geolocation.watchPosition(success, error, {
   enableHighAccuracy: true,
