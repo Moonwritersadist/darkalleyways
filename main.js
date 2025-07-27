@@ -6,7 +6,7 @@ const map = L.map('map').setView([50.8467, 4.3499], 11); //starting position
 	      ext: 'png'
       }).addTo(map);
       var Icon = L.icon({
-        iconUrl: "10473293.png",
+        iconUrl: "images/10473293.png",
         iconSize:     [30, 30],
         iconAnchor:   [15, 30],
         popupAnchor: [0, -32]
@@ -47,7 +47,7 @@ function success(position) {
     console.log("Added GPS")
 }
 
-L.easyButton('<img src="icon_location.png" class="locate-icon">', 
+L.easyButton('<img src="images/icon_location.png" class="locate-icon">', 
   function(btn, map) {
   if (marker) {
     map.setView(marker.getLatLng(), 14); 
