@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 h1 {
         font-family: "UnifrakturCook", cursive;
         color: darkred;
@@ -18,13 +23,9 @@ h1 {
       }
       body, html {
         height: 100%;
-        background-color: black;
-        background: url('images/background.jpg');
-        background-repeat: no-repeat;
-        font-family: sans-serif;
+        background: black url('images/background.jpg') no-repeat center center fixed;
         background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
+        font-family: sans-serif;
       }
       body::before {
         content: "";
@@ -52,24 +53,6 @@ h1 {
         width: 100%; 
         border: 5px solid darkred;
         }
-      @media (max-width: 600px) {
-        #map {
-          height: 250px;
-          width: 100%;
-          margin: 0;
-          box-sizing: border-box;
-        }
-        .map-wrapper {
-          width: 100%;
-          width: 95vw;
-          margin: 0 auto;
-          box-sizing: border-box;
-        }
-        h2 {
-          margin-left: 0;
-          margin-right: 0;
-        }
-      }
       .credit {
         color: white;
         font-size: 12px;
@@ -113,4 +96,29 @@ h1 {
     position: absolute;
     top: 5px;
     width: 18px;
-}
+}      @media (max-width: 600px) {
+        #map {
+          height: 250px;
+          width: 100%;
+          margin: 0;
+          box-sizing: border-box;
+        }
+        .map-wrapper {
+          width: 100%;
+          width: 95vw;
+          margin: 0 auto;
+          box-sizing: border-box;
+        }
+        body {
+          background: black url('images/background_mobile.jpg') no-repeat fixed center center;
+          background-size: cover;
+        }
+        h2 {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .notes {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
